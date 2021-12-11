@@ -12,7 +12,7 @@ app.post('/send-email', (req, res) => {
 
     const { email, name, type, date } = req.body;
 
-    const transporter = nodemailer.createTransport(`smtps://${config.EMAIL}:${config.PASSWORD}@smtp.gmail.com:465`); 
+    const transporter = nodemailer.createTransport(`smtps://${config.EMAIL}:${config.PASSWORD}@smtp.gmail.com:465`);
 
     const content = `
     <table style="width: 600px; padding: 10px; margin: 0 auto; border-collapse: collapse; background-color: #00e093; text-align: center">
@@ -33,7 +33,6 @@ app.post('/send-email', (req, res) => {
                         <li>Y actualizar tus registros medicos</li>
                     </ul>
                     <div style="width: 100%;margin:20px 0; display: inline-block;text-align: center">
-
                     </div>
                     <div style="width: 100%; text-align: left">
                         <a style="text-decoration: none; border-radius: 5px; padding: 11px 23px; color: white; background-color: #0c5190" href="https://www.saludapp.com" target="_blank">>Ir a SaludApp</a>	
@@ -53,7 +52,7 @@ app.post('/send-email', (req, res) => {
     }
 
     transporter.sendMail(mailOptions, (error, info) => {
-        if( error ) {
+        if (error) {
             res.status(500).send(error.message)
         }
 
